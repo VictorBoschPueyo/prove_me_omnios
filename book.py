@@ -7,4 +7,5 @@ class Book:
         self.price = price
         self.picture = picture
 
-    
+    def show_book_info(self):
+        print("The book " + self.name + " costs " + self.price + " and has a rating of " + self.rating + " star.")
