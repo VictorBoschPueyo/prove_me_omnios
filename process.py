@@ -18,19 +18,22 @@ for id, b in enumerate(library):
 
     ### Generate text of the book
 
-    input = "The text of " + b.name + " is: "
-    
+    input = "The text of " + b.name + " is:"
+    print(input)
     r = requests.post(
         "https://api.deepai.org/api/text-generator",
         data={
             'text': input,
         },
-        headers={'api-key': 'quickstart-QUdJIGlzIGNvbWluZy4uLi4K'}
+        headers={'api-key': '458c9964-b8e7-4564-8c89-566618d88a4a'}
     )
-    text_en = r.json()['output']
-    print((text_en != None))
-
-    b.set_text('english', text_en)
+    if (r.status_code == 200):
+        text_en = r.json()['output']
+        b.set_text('english', text_en)
+        print("Text correct!")
+    else:
+        text_en = "Error getting the text..."
+        print(text_en)
 
 
     ### Translate the text
@@ -39,24 +42,5 @@ for id, b in enumerate(library):
     b.set_text('spanish', text_sp)
     text_cat = GoogleTranslator(source='english', target='catalan').translate(text_en)
     b.set_text('catalan', text_cat)
-
-
-
-
-
-
-
-
-
-
-### Translate text
-
-
-
-
-
-
-
-
 
 

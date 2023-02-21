@@ -17,3 +17,16 @@ class Book:
 
     def show_book_info(self):
         print("The book " + self.name + " costs " + self.price + " and has a rating of " + self.rating + " star.")
+    
+    def get_all_info(self):
+        data = [self.ID, self.name, self.rating, self.price['pounds'], self.price['euros'], self.picture]
+
+        for curr in self.price.keys():
+            data.append(self.price[curr])
+
+        data.append(self.picture)
+
+        for lang in self.text.keys():
+            data.append(self.text[lang])
+
+        return data
