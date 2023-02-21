@@ -4,6 +4,7 @@ import csv
 from process import *
 
 all_data = list()
+all_data.append(['ID', 'Name', 'Rating', 'Price - pounds', 'Price - euros', 'Image URL', 'Text - English' , 'Text - Spanish', 'Text - Catalan'])
 
 for b in library:
     all_data.append(b.get_all_info())

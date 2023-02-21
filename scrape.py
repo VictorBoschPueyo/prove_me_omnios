@@ -27,7 +27,7 @@ info = html.find_all('img')
 titles_list = list()
 images_list = list()
 for i in info:
-    images_list.append(i['src'])
+    images_list.append('http://books.toscrape.com/' + i['src'])
     titles_list.append(i['alt'])
 
 del info

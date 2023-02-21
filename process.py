@@ -11,9 +11,13 @@ for id, b in enumerate(library):
     b.set_price('euros', euros)
 
 
-    ### Set ID for each book (can be cooler)
+    ### Set ID for each book (booring way)
 
-    b.ID = id
+    # b.ID = id
+
+    ### Set ID for each book (cool way)
+
+    b.generate_cool_id(library)
 
 
     ### Generate text of the book
@@ -25,16 +29,18 @@ for id, b in enumerate(library):
         data={
             'text': input,
         },
-        headers={'api-key': '458c9964-b8e7-4564-8c89-566618d88a4a'}
+        headers={'api-key': 'quickstart-QUdJIGlzIGNvbWluZy4uLi4K'
+        #headers={'api-key': '458c9964-b8e7-4564-8c89-566618d88a4a'
+        }
     )
     if (r.status_code == 200):
         text_en = r.json()['output']
-        b.set_text('english', text_en)
         print("Text correct!")
     else:
         text_en = "Error getting the text..."
         print(text_en)
 
+    b.set_text('english', text_en)
 
     ### Translate the text
 
