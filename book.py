@@ -19,7 +19,7 @@ class Book:
         print("The book " + self.name + " costs " + self.price + " and has a rating of " + self.rating + " star.")
     
     def get_all_info(self):
-        data = [self.ID, self.name, self.rating, self.price['pounds'], self.price['euros'], self.picture]
+        data = [self.ID, self.name, self.rating]
 
         for curr in self.price.keys():
             data.append(self.price[curr])
