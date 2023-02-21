@@ -12,5 +12,8 @@ class Book:
     def set_price(self, currency, money):
         self.price[currency] = money
 
+    def set_text(self, language, text):
+        self.text[language] = text
+
     def show_book_info(self):
         print("The book " + self.name + " costs " + self.price + " and has a rating of " + self.rating + " star.")
