@@ -17,7 +17,7 @@ prices = html.find_all('p', class_="price_color")
 
 prices_list = list()
 for p in prices:
-    prices_list.append(p.text)
+    prices_list.append(p.text[2:])
 ##########
 
 ########## Get all titles and images
@@ -41,8 +41,4 @@ for r in ratings:
 
 library = list()
 for b in range(len(images_list)):
-    library.append(Book(titles_list[b], ratings_list[b], prices_list[b], images_list[b]))
-
-for b in library:
-    b.show_book_info()
-
+    library.append(Book(0, titles_list[b], ratings_list[b], 'pound', float(prices_list[b]), images_list[b]))
